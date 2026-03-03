@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Sahith Gandla – ECE Student at VNR VJIET, Embedded Systems Enthusiast and IoT Developer from Hyderabad." />
+    <title>Sahith Gandla | ECE Student &amp; Embedded Systems Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+
+    <!-- ===================================================
+       NAVBAR
+  =================================================== -->
+    <header id="navbar">
+        <nav class="container" aria-label="Main navigation">
+            <div class="nav-logo"><span>SG</span></div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-links" role="list">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certs</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="RESUME_sahith(one%20page)%20(1).pdf" download="Sahith_Gandla_Resume.pdf" class="btn-resume-nav"
+                    id="nav-resume-btn" aria-label="Download Resume">
+                    &#8595; Resume
+                </a>
+                <button id="theme-toggle" aria-label="Switch to light mode">🌙</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===================================================
+       HERO
+  =================================================== -->
+    <section id="hero" aria-label="Hero introduction">
+
+        <!-- Particle Canvas -->
+        <canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+        <!-- Circuit Board Pattern -->
+        <div class="circuit-bg" aria-hidden="true">
+            <svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <!-- Traces -->
+                <path pathLength="1" class="circuit-trace" style="animation-delay:0s"
+                    d="M-10,380 L130,380 L130,220 L300,220 L300,130 L450,130" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:0.6s"
+                    d="M1210,420 L1080,420 L1080,290 L910,290 L910,190 L770,190" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:1.2s"
+                    d="M160,710 L160,530 L360,530 L360,390 L510,390" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:1.8s"
+                    d="M1040,710 L1040,550 L840,550 L840,430 L690,430" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:0.3s"
+                    d="M-10,160 L90,160 L90,60 L230,60 L230,-10" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:0.9s"
+                    d="M590,-10 L590,90 L470,90 L470,170 L330,170" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:1.5s"
+                    d="M590,710 L590,630 L730,630 L730,550 L860,550" />
+                <path pathLength="1" class="circuit-trace" style="animation-delay:2.1s"
+                    d="M1210,210 L1110,210 L1110,110 L990,110 L990,-10" />
+                <!-- Vias -->
+                <circle class="circuit-dot" cx="130" cy="380" r="4" />
+                <circle class="circuit-dot" cx="130" cy="220" r="4" />
+                <circle class="circuit-dot" cx="300" cy="220" r="4" />
+                <circle class="circuit-dot" cx="300" cy="130" r="4" />
+                <circle class="circuit-dot" cx="1080" cy="420" r="4" />
+                <circle class="circuit-dot" cx="1080" cy="290" r="4" />
+                <circle class="circuit-dot" cx="910" cy="290" r="4" />
+                <circle class="circuit-dot" cx="910" cy="190" r="4" />
+                <circle class="circuit-dot" cx="160" cy="530" r="4" />
+                <circle class="circuit-dot" cx="360" cy="530" r="4" />
+                <circle class="circuit-dot" cx="360" cy="390" r="4" />
+                <circle class="circuit-dot" cx="1040" cy="550" r="4" />
+                <circle class="circuit-dot" cx="840" cy="550" r="4" />
+                <circle class="circuit-dot" cx="840" cy="430" r="4" />
+                <circle class="circuit-dot" cx="90" cy="160" r="4" />
+                <circle class="circuit-dot" cx="90" cy="60" r="4" />
+                <circle class="circuit-dot" cx="230" cy="60" r="4" />
+                <circle class="circuit-dot" cx="590" cy="90" r="4" />
+                <circle class="circuit-dot" cx="470" cy="90" r="4" />
+                <circle class="circuit-dot" cx="470" cy="170" r="4" />
+                <circle class="circuit-dot" cx="590" cy="630" r="4" />
+                <circle class="circuit-dot" cx="730" cy="630" r="4" />
+                <circle class="circuit-dot" cx="730" cy="550" r="4" />
+                <circle class="circuit-dot" cx="1110" cy="210" r="4" />
+                <circle class="circuit-dot" cx="1110" cy="110" r="4" />
+                <circle class="circuit-dot" cx="990" cy="110" r="4" />
+                <!-- IC outlines -->
+                <rect class="circuit-ic" x="416" y="100" width="68" height="52" rx="4" />
+                <rect class="circuit-ic" x="740" y="158" width="62" height="52" rx="4" />
+                <rect class="circuit-ic" x="470" y="356" width="68" height="58" rx="4" />
+                <rect class="circuit-ic" x="640" y="496" width="72" height="54" rx="4" />
+            </svg>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-badge">Available for Opportunities</div>
+
+            <h1 class="hero-name">SAHITH<br>GANDLA</h1>
+
+            <div class="hero-typing-wrapper" aria-live="polite" aria-label="Dynamic role description">
+                <span class="static">&gt;_</span>
+                <span id="typed-text" aria-live="polite"></span>
+                <span class="cursor" aria-hidden="true"></span>
+            </div>
+
+            <p class="hero-tagline">"Electronics student who makes things actually work."</p>
+
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                <a href="RESUME_sahith(one%20page)%20(1).pdf" download="Sahith_Gandla_Resume.pdf"
+                    class="btn btn-outline" id="hero-resume-btn" aria-label="Download Resume PDF">
+                    &#8595; Download Resume
+                </a>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!-- ===================================================
+       ABOUT
+  =================================================== -->
+    <section id="about" aria-labelledby="about-title">
+        <div class="container">
+            <div class="about-grid">
+
+                <div class="about-visual reveal">
+                    <div class="about-avatar-ring" aria-hidden="true"></div>
+                    <div class="about-avatar" aria-label="Sahith Gandla initials">SG</div>
+                </div>
+
+                <div class="about-text">
+                    <p class="section-label reveal">About Me</p>
+                    <h2 class="section-title" id="about-title">
+                        Hello, I'm <span class="accent">Sahith</span>
+                    </h2>
+                    <div class="neon-line reveal reveal-delay-1"></div>
+
+                    <p class="reveal reveal-delay-2">
+                        I'm an <strong>Electronics &amp; Communication Engineering</strong> student at
+                        <span class="accent">VNR VJIET, Hyderabad</span>, pursuing my B.Tech (2023–2027)
+                        with a solid CGPA of <strong>8.6</strong>.
+                    </p>
+                    <p class="reveal reveal-delay-3">
+                        Based in <strong>Hyderabad, India</strong>, I'm passionate about <strong>Embedded
+                            Systems</strong>,
+                        <strong>IoT</strong>, and making hardware and software talk to each other seamlessly.
+                        I enjoy turning complex electronics concepts into practical, working solutions.
+                    </p>
+                    <p class="reveal reveal-delay-4">
+                        When I'm not debugging circuits, you'll find me participating in hackathons,
+                        exploring new microcontroller architectures, or contributing to IEEE student chapter activities.
+                    </p>
+
+                    <div class="about-info-list reveal reveal-delay-5">
+                        <div class="info-item">
+                            <span class="icon">📍</span>
+                            <span>Hyderabad, India</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">🎓</span>
+                            <span>B.Tech ECE, 2027</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">🏫</span>
+                            <span>VNR VJIET</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="icon">⭐</span>
+                            <span>CGPA: 8.6</span>
+                        </div>
+                    </div>
+
+                    <div class="about-stats reveal">
+                        <div class="about-stat">
+                            <strong>8.6</strong>
+                            <span>CGPA</span>
+                        </div>
+                        <div class="about-stat">
+                            <strong>7+</strong>
+                            <span>Certifications</span>
+                        </div>
+                        <div class="about-stat">
+                            <strong>3+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       SKILLS
+  =================================================== -->
+    <section id="skills" aria-labelledby="skills-title">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Technical Expertise</p>
+                <h2 class="section-title reveal reveal-delay-1" id="skills-title">
+                    My <span class="accent">Skills</span>
+                </h2>
+                <div class="neon-line reveal reveal-delay-2"></div>
+                <p class="reveal reveal-delay-3"
+                    style="color: var(--clr-text-muted); font-size:0.85rem; max-width:520px;">
+                    Core technical skills built through coursework, projects, and hands-on experimentation
+                    with embedded hardware and software.
+                </p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- skill items injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       PROJECTS
+  =================================================== -->
+    <section id="projects" aria-labelledby="projects-title">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">What I've Built</p>
+                <h2 class="section-title reveal reveal-delay-1" id="projects-title">
+                    Featured <span class="accent">Projects</span>
+                </h2>
+                <div class="neon-line reveal reveal-delay-2"></div>
+            </div>
+
+            <div class="filter-bar reveal" role="group" aria-label="Filter projects by category">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="embedded">Embedded</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card reveal" data-tags="embedded iot" aria-labelledby="proj1-title">
+                    <div class="project-icon" aria-hidden="true">🔐</div>
+                    <h3 id="proj1-title">GSM Based Security Lock System</h3>
+                    <p>
+                        A hardware security system using GSM modules to send SMS alerts and
+                        allow remote access control. Integrated with microcontrollers to detect
+                        unauthorized access and trigger notifications instantly.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Embedded C</span>
+                        <span class="tag">GSM Module</span>
+                        <span class="tag">Keil uVision</span>
+                        <span class="tag">Proteus</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal reveal-delay-1" data-tags="embedded" aria-labelledby="proj2-title">
+                    <div class="project-icon" aria-hidden="true">🚦</div>
+                    <h3 id="proj2-title">Smart Traffic Light System with Density Control</h3>
+                    <p>
+                        An intelligent traffic management system that dynamically adjusts signal
+                        timings based on real-time vehicle density using IR sensors, reducing
+                        congestion and improving traffic flow efficiency.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Embedded C</span>
+                        <span class="tag">IR Sensors</span>
+                        <span class="tag">Proteus</span>
+                        <span class="tag">MATLAB</span>
+                    </div>
+                </article>
+
+                <article class="project-card reveal reveal-delay-2" data-tags="python" aria-labelledby="proj3-title">
+                    <div class="project-icon" aria-hidden="true">🖼️</div>
+                    <h3 id="proj3-title">Image Steganography Tool</h3>
+                    <p>
+                        A Python-based tool to embed and extract hidden messages within digital
+                        images using LSB (Least Significant Bit) encoding. Supports multiple
+                        image formats with a clean command-line interface.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">PIL/Pillow</span>
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">LSB Encoding</span>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       CERTIFICATIONS
+  =================================================== -->
+    <section id="certifications" aria-labelledby="certs-title">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label reveal">Learning &amp; Growth</p>
+                <h2 class="section-title reveal reveal-delay-1" id="certs-title">
+                    <span class="accent">Certifications</span>
+                </h2>
+                <div class="neon-line reveal reveal-delay-2"></div>
+            </div>
+
+            <div class="certs-grid">
+
+                <div class="cert-card reveal">
+                    <div class="cert-icon" aria-hidden="true">🏆</div>
+                    <div class="cert-info">
+                        <h4>NPTEL — Internet of Things</h4>
+                        <p>IIT Kharagpur · National Programme</p>
+                        <span class="cert-badge">Top 5% &nbsp;·&nbsp; Score 85%</span>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon" aria-hidden="true">🔧</div>
+                    <div class="cert-info">
+                        <h4>Embedded C Masterclass</h4>
+                        <p>Professional Certificate Program</p>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal reveal-delay-2">
+                    <div class="cert-icon" aria-hidden="true">💡</div>
+                    <div class="cert-info">
+                        <h4>Embedded System Design</h4>
+                        <p>Systems Architecture &amp; Design</p>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal reveal-delay-3">
+                    <div class="cert-icon" aria-hidden="true">🚀</div>
+                    <div class="cert-info">
+                        <h4>Embedded Systems for Beginners</h4>
+                        <p>Foundations of Embedded Engineering</p>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal reveal-delay-4">
+                    <div class="cert-icon" aria-hidden="true">🤖</div>
+                    <div class="cert-info">
+                        <h4>Generative AI Mastermind</h4>
+                        <p>AI &amp; Machine Learning Concepts</p>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal">
+                    <div class="cert-icon" aria-hidden="true">🔌</div>
+                    <div class="cert-info">
+                        <h4>PCB Design &amp; Verification</h4>
+                        <p>Hardware Design Fundamentals</p>
+                    </div>
+                </div>
+
+                <div class="cert-card reveal reveal-delay-1">
+                    <div class="cert-icon" aria-hidden="true">💻</div>
+                    <div class="cert-info">
+                        <h4>Smart Coder</h4>
+                        <p>Programming &amp; Problem Solving</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       ACHIEVEMENTS
+  =================================================== -->
+    <section id="achievements" aria-labelledby="achievements-title">
+        <div class="container">
+            <div class="section-header" style="text-align:center; --neon-mx: auto;">
+                <p class="section-label reveal" style="text-align:center;">Recognition &amp; Activities</p>
+                <h2 class="section-title reveal reveal-delay-1" id="achievements-title" style="text-align:center;">
+                    <span class="accent">Achievements</span>
+                </h2>
+                <div class="neon-line reveal reveal-delay-2" style="margin:0 auto 2.5rem;"></div>
+            </div>
+
+            <ul class="achievements-list" role="list">
+
+                <li class="achievement-item reveal">
+                    <span class="achievement-num" aria-hidden="true">01</span>
+                    <div class="achievement-body">
+                        <h4>🥈 Runner-up — IEEE Quiz on Antennas</h4>
+                        <p>Secured runner-up position in an IEEE-organized technical quiz focused on antenna theory and
+                            RF engineering concepts, competing among ECE students.</p>
+                    </div>
+                </li>
+
+                <li class="achievement-item reveal reveal-delay-1">
+                    <span class="achievement-num" aria-hidden="true">02</span>
+                    <div class="achievement-body">
+                        <h4>Smart India Hackathon 2025</h4>
+                        <p>Participated in Smart India Hackathon 2025 — India's largest open innovation model —
+                            developing solutions to real-world government and industry challenges.</p>
+                    </div>
+                </li>
+
+                <li class="achievement-item reveal reveal-delay-2">
+                    <span class="achievement-num" aria-hidden="true">03</span>
+                    <div class="achievement-body">
+                        <h4>⚡ Circuit Crush Hackathon — IEEE</h4>
+                        <p>Competed in the Circuit Crush Hackathon organized by IEEE, showcasing hardware design and
+                            circuit-level problem-solving skills.</p>
+                    </div>
+                </li>
+
+                <li class="achievement-item reveal reveal-delay-3">
+                    <span class="achievement-num" aria-hidden="true">04</span>
+                    <div class="achievement-body">
+                        <h4>📡 Member — IETE Student Chapter</h4>
+                        <p>Active member of the Institution of Electronics and Telecommunication Engineers (IETE)
+                            Student Chapter, engaging in technical seminars and workshops.</p>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       CONTACT
+  =================================================== -->
+    <section id="contact" aria-labelledby="contact-title">
+        <div class="container">
+            <div class="contact-wrapper">
+
+                <div class="contact-text">
+                    <p class="section-label reveal">Let's Connect</p>
+                    <h2 id="contact-title" class="reveal reveal-delay-1">
+                        Got an idea or<br><span class="accent">opportunity?</span>
+                    </h2>
+                    <div class="neon-line reveal reveal-delay-2"></div>
+                    <p class="reveal reveal-delay-3">
+                        I'm always open to discussing embedded systems projects, IoT ideas,
+                        internship opportunities, or just a chat about electronics. Drop me a message!
+                    </p>
+
+                    <div class="contact-links reveal reveal-delay-4">
+                        <a href="mailto:sahithgandla02@gmail.com" class="contact-link" id="email-link"
+                            aria-label="Send email to Sahith Gandla">
+                            <div class="contact-link-icon" aria-hidden="true">✉️</div>
+                            <div class="contact-link-info">
+                                <strong>Email</strong>
+                                <span>sahithgandla02@gmail.com</span>
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/sahithgandla" target="_blank" rel="noopener noreferrer"
+                            class="contact-link" id="linkedin-link" aria-label="Visit Sahith Gandla's LinkedIn profile">
+                            <div class="contact-link-icon" aria-hidden="true">💼</div>
+                            <div class="contact-link-info">
+                                <strong>LinkedIn</strong>
+                                <span>linkedin.com/in/sahithgandla</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-card reveal reveal-delay-2">
+                    <p class="section-label">Open to</p>
+                    <p>
+                        Internships, project collaborations, hackathons, and any embedded systems or
+                        IoT work where I can contribute and grow. Currently pursuing B.Tech ECE at VNR VJIET
+                        and open to exciting opportunities.
+                    </p>
+                    <span class="contact-email-big">sahithgandla02@gmail.com</span>
+                    <a href="mailto:sahithgandla02@gmail.com" class="btn btn-primary" id="contact-cta"
+                        style="width:100%; justify-content:center;">
+                        Send a Message
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================================================
+       FOOTER
+  =================================================== -->
+    <footer aria-label="Site footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">Sahith Gandla</div>
+                <p>B.Tech ECE &nbsp;·&nbsp; VNR VJIET &nbsp;·&nbsp; Hyderabad</p>
+                <p>Crafted with <span>♥</span> and a lot of embedded systems love</p>
+                <p><span>&copy; 2026 Sahith Gandla. All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">&#8679;</button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
