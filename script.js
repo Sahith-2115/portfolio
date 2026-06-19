@@ -1,14 +1,14 @@
 'use strict';
 
 /* ---- DATA ---- */
-const SKILLS = [
-  { name: 'Embedded C', pct: 88 },
-  { name: 'Java', pct: 75 },
-  { name: 'Python', pct: 80 },
-  { name: 'MATLAB', pct: 70 },
-  { name: 'Multisim', pct: 72 },
-  { name: 'Keil µVision', pct: 82 },
-  { name: 'Proteus', pct: 78 },
+const GLOBE_SKILLS = [
+  { name: 'Embedded C',   symbol: 'C',  color: '#00ff88', bg: 'rgba(0,255,136,0.15)'  },
+  { name: 'Java',         symbol: 'Jv', color: '#f89820', bg: 'rgba(248,152,32,0.15)' },
+  { name: 'Python',       symbol: 'Py', color: '#4b8bbe', bg: 'rgba(75,139,190,0.15)' },
+  { name: 'MATLAB',       symbol: 'M',  color: '#e16737', bg: 'rgba(225,103,55,0.15)' },
+  { name: 'Multisim',     symbol: '≋',  color: '#ffd700', bg: 'rgba(255,215,0,0.15)'  },
+  { name: 'Keil µVision', symbol: 'µV', color: '#cc3333', bg: 'rgba(204,51,51,0.15)'  },
+  { name: 'Proteus',      symbol: 'P',  color: '#00aacc', bg: 'rgba(0,170,204,0.15)'  },
 ];
 
 const TYPED_PHRASES = [
@@ -17,25 +17,95 @@ const TYPED_PHRASES = [
   'IoT Developer',
 ];
 
-/* ---- SKILLS RENDER ---- */
-(function renderSkills() {
-  const grid = document.querySelector('.skills-grid');
-  if (!grid) return;
+/* ---- 3D SKILLS GLOBE ---- */
+(function initSkillsGlobe() {
+  const container = document.getElementById('skills-globe');
+  if (!container) return;
 
-  SKILLS.forEach((s, i) => {
-    const delay = i < 5 ? `reveal-delay-${i + 1}` : '';
-    const html = `
-      <div class="skill-item reveal ${delay}" role="group" aria-label="${s.name} skill">
-        <div class="skill-header">
-          <span class="skill-name">${s.name}</span>
-          <span class="skill-pct" aria-label="${s.pct} percent">${s.pct}%</span>
-        </div>
-        <div class="skill-bar-track" role="progressbar" aria-valuenow="${s.pct}" aria-valuemin="0" aria-valuemax="100">
-          <div class="skill-bar-fill" data-pct="${s.pct}"></div>
-        </div>
-      </div>`;
-    grid.insertAdjacentHTML('beforeend', html);
+  const RADIUS = 150;
+  const FOV    = 420;
+  const SPEED  = 0.007;          /* radians per frame — auto rotation */
+  const TILT   = 0.42;           /* fixed X-axis tilt (radians) */
+
+  /* ---- Distribute skills evenly on sphere (Fibonacci) ---- */
+  const golden = (1 + Math.sqrt(5)) / 2;
+  const basePos = GLOBE_SKILLS.map((_, i) => {
+    const phi   = Math.acos(1 - 2 * (i + 0.5) / GLOBE_SKILLS.length);
+    const theta = 2 * Math.PI * i / golden;
+    return {
+      x: RADIUS * Math.sin(phi) * Math.cos(theta),
+      y: RADIUS * Math.sin(phi) * Math.sin(theta),
+      z: RADIUS * Math.cos(phi),
+    };
   });
+
+  /* ---- Build DOM nodes ---- */
+  const nodes = GLOBE_SKILLS.map((skill, i) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'globe-node';
+    wrap.innerHTML = `
+      <div class="globe-icon" style="background:${skill.bg};color:${skill.color};border-color:${skill.color}55;">
+        ${skill.symbol}
+      </div>
+      <span class="globe-label">${skill.name}</span>`;
+    container.appendChild(wrap);
+    return { el: wrap, base: basePos[i] };
+  });
+
+  /* ---- Precompute X-tilt cos/sin ---- */
+  const cosX = Math.cos(TILT), sinX = Math.sin(TILT);
+  let angleY = 0;
+
+  function frame() {
+    angleY += SPEED;
+    const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+
+    /* Sort by depth so far items render under near items */
+    const projected = nodes.map(({ el, base }) => {
+      /* Rotate Y */
+      let rx = base.x * cosY - base.z * sinY;
+      let rz = base.x * sinY + base.z * cosY;
+      let ry = base.y;
+      /* Rotate X (tilt) */
+      let fy = ry * cosX - rz * sinX;
+      let fz = ry * sinX + rz * cosX;
+
+      /* Perspective */
+      const scale = FOV / (FOV + fz);
+      const px    = rx * scale;
+      const py    = fy * scale;
+
+      /* Depth 0 (back) → 1 (front) */
+      const depth = (fz + RADIUS) / (2 * RADIUS);
+
+      return { el, px, py, depth, scale };
+    });
+
+    /* Apply styles */
+    projected.forEach(({ el, px, py, depth }) => {
+      const opacity  = 0.25 + depth * 0.75;
+      const iconSize = 32 + depth * 26;          /* 32 → 58 px */
+      const fontSize = iconSize * 0.38;
+
+      el.style.transform = `translate(calc(-50% + ${px}px), calc(-50% + ${py}px))`;
+      el.style.opacity   = opacity;
+      el.style.zIndex    = Math.round(depth * 100);
+
+      const icon = el.querySelector('.globe-icon');
+      icon.style.width        = iconSize + 'px';
+      icon.style.height       = iconSize + 'px';
+      icon.style.fontSize     = fontSize + 'px';
+      icon.style.borderRadius = (iconSize * 0.26) + 'px';
+
+      /* Label fades out toward back */
+      const lbl = el.querySelector('.globe-label');
+      lbl.style.opacity = depth > 0.55 ? (depth - 0.55) * 2.2 : 0;
+    });
+
+    requestAnimationFrame(frame);
+  }
+
+  frame();
 })();
 
 /* ---- TYPED EFFECT ---- */
