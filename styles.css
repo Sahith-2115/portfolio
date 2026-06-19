@@ -1886,3 +1886,10 @@ html[data-theme="light"] .globe-icon {
   .skills-globe-wrapper { height: 320px; }
   .globe-sphere-bg { width: 200px; height: 200px; }
 }
+
+/* Devicon elements inside globe badges */
+.globe-icon i[class*="devicon"] {
+  font-size: inherit;
+  line-height: 1;
+  display: block;
+}

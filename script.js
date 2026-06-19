@@ -3,8 +3,8 @@
 /* ---- DATA ---- */
 const GLOBE_SKILLS = [
   { name: 'Embedded C',   symbol: 'C',  color: '#00ff88', bg: 'rgba(0,255,136,0.15)'  },
-  { name: 'Java',         symbol: 'Jv', color: '#f89820', bg: 'rgba(248,152,32,0.15)' },
-  { name: 'Python',       symbol: 'Py', color: '#4b8bbe', bg: 'rgba(75,139,190,0.15)' },
+  { name: 'Java',         symbol: '<i class="devicon-java-plain colored"></i>', color: '#f89820', bg: 'rgba(248,152,32,0.15)' },
+  { name: 'Python',       symbol: '<i class="devicon-python-plain colored"></i>', color: '#4b8bbe', bg: 'rgba(75,139,190,0.15)' },
   { name: 'MATLAB',       symbol: 'M',  color: '#e16737', bg: 'rgba(225,103,55,0.15)' },
   { name: 'Multisim',     symbol: '≋',  color: '#ffd700', bg: 'rgba(255,215,0,0.15)'  },
   { name: 'Keil µVision', symbol: 'µV', color: '#cc3333', bg: 'rgba(204,51,51,0.15)'  },
@@ -24,7 +24,7 @@ const TYPED_PHRASES = [
 
   const RADIUS = 150;
   const FOV    = 420;
-  const SPEED  = 0.007;          /* radians per frame — auto rotation */
+  const SPEED  = 0.020;          /* radians per frame — auto rotation */
   const TILT   = 0.42;           /* fixed X-axis tilt (radians) */
 
   /* ---- Distribute skills evenly on sphere (Fibonacci) ---- */
